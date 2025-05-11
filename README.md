@@ -24,24 +24,7 @@
         *   Android Studio should automatically sync Gradle dependencies. If not, trigger a manual sync.
         *   The necessary ML Kit dependencies (`com.google.mlkit:object-detection`) are included in `android/app/build.gradle`.
 
-    *   **iOS:**
-        *   Navigate to the `ios` directory: `cd ios`
-        *   Install CocoaPods dependencies: `pod install` (If you've added ML Kit pods for iOS).
-        *   Open `Runner.xcworkspace` (not `Runner.xcodeproj`) in Xcode.
-        *   Ensure you have an Apple Developer account configured in Xcode for signing.
-        *   Add necessary permissions to `ios/Runner/Info.plist`:
-            ```xml
-            <key>NSCameraUsageDescription</key>
-            <string>This app requires camera access to detect objects.</string>
-            ```
-        *   (Add any other iOS-specific setup related to ML Kit).
-
-5.  **Run the App:**
-    *   Connect a device or start an emulator/simulator.
-    *   Run the app from your IDE or using the command line:
-        ```bash
-        flutter run
-        ```
+    
 
 ## Implementation Explanation
 
@@ -139,5 +122,7 @@ The application follows these main steps:
     *   Handling front-camera mirroring. This often requires iterative adjustments.
 *   **(If applicable) iOS Implementation Complexity:** Setting up ML Kit or Vision on iOS natively, handling `CVPixelBuffer` conversion, and managing memory and threading can be more involved than on Android if not familiar with Swift/Objective-C specifics for camera processing.
 *   **(If applicable) Asynchronous Nature:** Managing the async flow between `startImageStream`, platform channel calls, and UI updates (`setState`) requires care to avoid race conditions or excessive processing. The `_isDetecting` flag helps manage this.
+
+** App is not detecting the object due to some specific error. Error will be resolved in coming days
 
 
